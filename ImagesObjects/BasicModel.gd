@@ -4,7 +4,19 @@ func _getSex():
 	return GlobalVars.RANDOM.randi_range(0,1)
 	
 func _getAge():
-	return GlobalVars.RANDOM.randi_range(18,80)
+	return GlobalVars.RANDOM.randi_range(18,60)
+
+func _getHP():
+	return GlobalVars.RANDOM.randi_range(1,3)
+
+func _getStrength():
+	return GlobalVars.RANDOM.randi_range(1,3)
+	
+func _getDexterity():
+	return GlobalVars.RANDOM.randi_range(1,3)
+	
+func _getIntellect():
+	return GlobalVars.RANDOM.randi_range(1,3)
 	
 func _getHealth():
 	var healthArr = []

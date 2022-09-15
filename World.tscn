@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Images/TilesetGround.png" type="Texture" id=1]
 [ext_resource path="res://TimerNode.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World.gd" type="Script" id=3]
+[ext_resource path="res://Images/door.png" type="Texture" id=4]
+[ext_resource path="res://WorldCamera.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 96, 96, 0, 96, 0, 0, 96, 0 )
@@ -206,7 +208,24 @@ script = ExtResource( 3 )
 tile_set = SubResource( 9 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 8, -1610612729, 0, 917512, 6, 0, 917515, 0, 0, 917518, 0, 0, 917521, 0, 0, 917524, 0, 0, 917527, 7, 0, 917537, 7, 0 )
+tile_data = PoolIntArray( 8, -1610612729, 0, 720936, 0, 0, 851956, 1, 0, 983028, 1, 0, 983030, 1, 0, 983032, 1, 0, 983034, 1, 0, 983036, 1, 0, 983038, 1, 0, 917504, 1, 0, 917506, 1, 0, 917508, 1, 0, 917510, 1, 0, 917512, 6, 0, 917515, 0, 0, 917518, 0, 0, 917521, 0, 0, 917524, 0, 0, 917527, 7, 0, 917537, 7, 0, 1114123, 1, 0, 1179659, 1, 0, 1245195, 1, 0, 1310731, 1, 0, 1376267, 1, 0, 1441803, 1, 0, 1507339, 1, 0, 1572875, 1, 0, 1638411, 1, 0, 1703947, 1, 0, 1769483, 1, 0, 1835019, 1, 0 )
 
 [node name="TimerNode" parent="." instance=ExtResource( 2 )]
 position = Vector2( 32, 32 )
+
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 280, 390 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 572, 372 )
+current = true
+zoom = Vector2( 0.7, 0.7 )
+limit_left = -1000
+limit_top = -10
+limit_right = 1500
+limit_bottom = 1400
+smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource( 5 )

@@ -7,11 +7,6 @@ var Count = 0
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _on_Timer_timeout():
 	if Count<5:
 		var NewHuman = Human.instance()
@@ -22,5 +17,5 @@ func _on_Timer_timeout():
 	else: 
 		if (Count==5):
 			Count+=1
-			return print("TIMER ENDED")
+			return print("SPAWN TIMER ENDED")
 		else: return
