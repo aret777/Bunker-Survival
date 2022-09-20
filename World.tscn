@@ -205,27 +205,42 @@ resource_local_to_scene = true
 script = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 1095, 69 )
 tile_set = SubResource( 9 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 8, -1610612729, 0, 720936, 0, 0, 851956, 1, 0, 983028, 1, 0, 983030, 1, 0, 983032, 1, 0, 983034, 1, 0, 983036, 1, 0, 983038, 1, 0, 917504, 1, 0, 917506, 1, 0, 917508, 1, 0, 917510, 1, 0, 917512, 6, 0, 917515, 0, 0, 917518, 0, 0, 917521, 0, 0, 917524, 0, 0, 917527, 7, 0, 917537, 7, 0, 1114123, 1, 0, 1179659, 1, 0, 1245195, 1, 0, 1310731, 1, 0, 1376267, 1, 0, 1441803, 1, 0, 1507339, 1, 0, 1572875, 1, 0, 1638411, 1, 0, 1703947, 1, 0, 1769483, 1, 0, 1835019, 1, 0 )
 
-[node name="TimerNode" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 32 )
+[node name="TimerSpawn" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1480, 456 )
 
 [node name="Door" type="Sprite" parent="."]
-position = Vector2( 280, 390 )
+position = Vector2( 1352, 455 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 572, 372 )
+position = Vector2( 1722, 419 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
-limit_left = -1000
+limit_left = -10
 limit_top = -10
-limit_right = 1500
+limit_right = 2500
 limit_bottom = 1400
 smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource( 5 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 56.0
+margin_top = 32.0
+margin_right = 56.0
+margin_bottom = 32.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control"]
+margin_right = 40.0
+margin_bottom = 40.0

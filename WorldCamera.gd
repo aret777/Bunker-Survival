@@ -20,8 +20,8 @@ var LeftMouseButtonPressed = false
 
 	
 func _process(delta):
-	if position.x < -1000: position.x=-1000
-	if position.x >1350: position.x=1350
+	if position.x < -10: position.x=-10
+	if position.x >2350: position.x=2350
 	if position.y < 0: position.y=0
 	if position.y >1400: position.y=1400
 	var input_x_direction = (int(Input.is_action_pressed("ui_right"))) - (int(Input.is_action_pressed("ui_left")))
@@ -47,7 +47,7 @@ func _process(delta):
 		CameraMovement = PrevMousePos - get_local_mouse_position()
 	
 	# Update position of the camera.
-	position += CameraMovement * get_zoom() * 2
+	position += CameraMovement * get_zoom() * delta * CameraSpeed * 2
 	#print ("Drag position: ", position)
 	# Set camera movement to zero, update old mouse position.
 	CameraMovement = Vector2(0,0)
@@ -62,11 +62,11 @@ func _input(event):
 		
 	if event is InputEventMouseButton:
 		if event.is_pressed():
-			if Input.is_action_pressed("button_wheel_up"):
+			if event.is_action_pressed("button_wheel_up"):
 				Zooming = true
 				ZoomFactor -= 0.1 
 				ZoomPosition = get_global_mouse_position()
-			if Input.is_action_pressed("button_wheel_down"):
+			if event.is_action_pressed("button_wheel_down"):
 				Zooming = true
 				ZoomFactor += 0.1 
 				ZoomPosition = get_global_mouse_position()
@@ -74,6 +74,8 @@ func _input(event):
 				if event.pressed: 
 					Drag = true
 					LeftMouseButtonPressed = true
+#			Ну можешь просто if в if вложить
+#			Если сработала проверка на клик мышкой по юниту, то Drag не меняешь на true
 			if event.is_action_released("mouse_left_button"): 
 				LeftMouseButtonPressed = false
 				Drag = false
