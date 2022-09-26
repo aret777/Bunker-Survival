@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Images/TilesetGround.png" type="Texture" id=1]
 [ext_resource path="res://TimerNode.tscn" type="PackedScene" id=2]
 [ext_resource path="res://World.gd" type="Script" id=3]
 [ext_resource path="res://Images/door.png" type="Texture" id=4]
 [ext_resource path="res://WorldCamera.gd" type="Script" id=5]
+[ext_resource path="res://UI/BunkerUI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 96, 96, 0, 96, 0, 0, 96, 0 )
@@ -220,7 +221,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1722, 419 )
+position = Vector2( 1616, 384 )
 current = true
 zoom = Vector2( 0.7, 0.7 )
 limit_left = -10
@@ -233,14 +234,4 @@ script = ExtResource( 5 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 56.0
-margin_top = 32.0
-margin_right = 56.0
-margin_bottom = 32.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="BunkerUI" parent="UI" instance=ExtResource( 6 )]
