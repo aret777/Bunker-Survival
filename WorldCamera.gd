@@ -79,6 +79,7 @@ func _input(event):
 			if event.is_action_released("mouse_left_button"): 
 				LeftMouseButtonPressed = false
 				Drag = false
+				
 		else: 
 			Zooming = false
 			LeftMouseButtonPressed = false
