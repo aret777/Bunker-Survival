@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/UI Square.png" type="Texture" id=1]
 [ext_resource path="res://UI/UI Bar.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/NORMAL_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Fonts/BOLD_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Images/Food.png" type="Texture" id=5]
 [ext_resource path="res://Images/People.png" type="Texture" id=6]
@@ -95,14 +94,10 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuButton"]
-margin_top = 16.0
+[node name="Menu" type="Label" parent="MenuButton"]
 margin_right = 88.0
-margin_bottom = 80.0
-size_flags_vertical = 4
-custom_fonts/bold_font = ExtResource( 4 )
-custom_fonts/normal_font = ExtResource( 3 )
-bbcode_enabled = true
-bbcode_text = "[center]Menu[/center]"
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 4 )
 text = "Menu"
-fit_content_height = true
+align = 1
+valign = 1

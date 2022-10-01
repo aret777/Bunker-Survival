@@ -4,6 +4,7 @@ var RANDOM
 
 var is_zoomed = false
 var UnitSelected = false
+var IsSelected = false
 var UnitIDCounter = 0
 var HumanObjectArray = []
 	

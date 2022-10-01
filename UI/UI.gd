@@ -9,10 +9,10 @@ func _ready():
 func _input(event): #closing char menu on mouse click anywhere
 	if event is InputEventMouseButton:
 		if event.is_pressed():
-			if Input.is_action_pressed("mouse_left_button") && GlobalVariables.UnitSelected:
+			if Input.is_action_pressed("mouse_left_button") && GlobalVariables.IsSelected:
 				get_tree().call_group("SelectedUnit", "_Desselected_Unit")
 				CharInfo.hide()
-			if Input.is_action_pressed("mouse_right_button") && GlobalVariables.UnitSelected:
+			if Input.is_action_pressed("mouse_right_button") && GlobalVariables.IsSelected:
 				get_tree().call_group("SelectedUnit", "_Desselected_Unit")
 				CharInfo.hide()
 
