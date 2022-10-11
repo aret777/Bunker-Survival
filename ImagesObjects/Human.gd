@@ -2,6 +2,7 @@ extends "res://ImagesObjects/BasicModel.gd"
 
 onready var sprite = $Sprite
 onready var namelabel = $NameLabel
+onready var Selected = false
 var AvatarID 
 		
 func _ready():

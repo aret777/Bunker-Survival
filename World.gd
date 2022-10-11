@@ -1,13 +1,16 @@
 extends Node
 
 var Human = preload("res://ImagesObjects/Human.tscn")
+var Bunker = preload("res://ImagesObjects/Room.tscn")
 
-onready var StartSpawnPoint = $SpawnPoint.get_position()
+onready var CharInfoUI = $UI/CharInfoUI
+onready var HumansSpawnPoint = $HumanSpawnPoint.get_position()
+onready var RoomsSpawnPoint = $RoomsSpawnPoint.get_position()
 var timer = Timer.new()
 var i = 0
 
 func _ready():
-	$UI/CharInfoUI.hide()
+	CharInfoUI.hide()
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	#timeout is what says in docs, in signals
 	#self is who respond to the callback
@@ -15,17 +18,26 @@ func _ready():
 	add_child(timer) #to process
 	timer.set_wait_time(0.5)
 	timer.start() #to start
+	
+	for j in range (6):
+		var NewRoom = Bunker.instance()
+		if j<3:
+			NewRoom.position = RoomsSpawnPoint + Vector2(j*450, 0)
+		if j>=3 && i<6:
+			NewRoom.position = RoomsSpawnPoint + Vector2((j-3)*450, 300)
+		GlobalVariables.RoomsObjectArray.append(NewRoom) #First append on array, then add, cause add
+		#works on _ready, but append before.
+		add_child(NewRoom) #spawn on world
 	pass # Replace with function body.
 
 func _on_timer_timeout():
 	var NewHuman = Human.instance()
 	#NewHuman.position = Vector2(1470+Count*60, 450)
-	NewHuman.position = StartSpawnPoint + Vector2(i*100, 0)
-	add_child(NewHuman) #spawn on world
+	NewHuman.position = HumansSpawnPoint + Vector2(i*100, 0)
 	GlobalVariables.HumanObjectArray.append(NewHuman)
-	GlobalVariables.UnitIDCounter+=1
+	add_child(NewHuman) #spawn on world
 	i+=1
-	if i == 5:
+	if i == 6:
 		timer.stop()
 
 

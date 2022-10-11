@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/Profile.png" type="Texture" id=1]
 [ext_resource path="res://UI/CharInfoUI.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Images/Avatars.png" type="Texture" id=6]
 [ext_resource path="res://UI/Bar.png" type="Texture" id=7]
 [ext_resource path="res://UI/Inventory Shell.png" type="Texture" id=8]
+[ext_resource path="res://UI/Button 1.png" type="Texture" id=9]
+[ext_resource path="res://UI/BarTheme.tres" type="Theme" id=10]
+[ext_resource path="res://Fonts/NORMAL_font.tres" type="DynamicFont" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0509804, 0.529412, 0.0705882, 1 )
@@ -44,6 +47,7 @@ margin_top = 2.0
 margin_right = 124.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 5 )
+text = "Name"
 align = 1
 autowrap = true
 __meta__ = {
@@ -66,28 +70,15 @@ text = "0 age"
 align = 1
 
 [node name="Status2" type="Label" parent="VBoxContainer2"]
+modulate = Color( 0.32549, 0.498039, 0.858824, 1 )
 margin_top = 30.0
 margin_right = 86.0
-margin_bottom = 56.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 85, 60 )
 custom_fonts/font = ExtResource( 5 )
 text = "Outside"
 align = 1
-
-[node name="Hands" type="Sprite" parent="."]
-position = Vector2( 88, 248 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Vest" type="Sprite" parent="."]
-position = Vector2( 232, 248 )
-scale = Vector2( 1.8, 1.8 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
+autowrap = true
 
 [node name="Avatars" type="Sprite" parent="."]
 position = Vector2( 266.512, 72 )
@@ -247,6 +238,29 @@ scale = Vector2( 1, 1.5 )
 texture = ExtResource( 7 )
 offset = Vector2( -1, -2.66666 )
 
+[node name="CloseButton" type="Button" parent="."]
+margin_left = 290.0
+margin_top = 2.0
+margin_right = 314.0
+margin_bottom = 26.0
+text = "X"
+
+[node name="Hands" type="Sprite" parent="."]
+position = Vector2( 88, 248 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Vest" type="Sprite" parent="."]
+position = Vector2( 232, 248 )
+scale = Vector2( 1.8, 1.8 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="InventoryShell" type="Sprite" parent="."]
 position = Vector2( -232, 408 )
 scale = Vector2( 0.5, 0.496914 )
@@ -283,11 +297,87 @@ scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
 offset = Vector2( 638, -141.373 )
 
-[node name="ActiveCardLabel" type="Label" parent="."]
-margin_left = 120.0
-margin_top = 560.0
-margin_right = 192.0
-margin_bottom = 574.0
-text = "Active Card"
+[node name="AcceptButton" type="Button" parent="."]
+modulate = Color( 0.231373, 0.811765, 0.239216, 1 )
+margin_left = 26.0
+margin_top = 576.0
+margin_right = 150.0
+margin_bottom = 623.0
+theme = ExtResource( 10 )
+custom_fonts/font = ExtResource( 5 )
+text = "Accept"
+icon = ExtResource( 9 )
+flat = true
+icon_align = 1
+
+[node name="DenieButton" type="Button" parent="."]
+modulate = Color( 1, 0.117647, 0.117647, 1 )
+margin_left = 168.0
+margin_top = 576.0
+margin_right = 292.0
+margin_bottom = 623.0
+custom_fonts/font = ExtResource( 5 )
+text = "Decline"
+icon = ExtResource( 9 )
+flat = true
+icon_align = 1
+
+[node name="List" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 40.0
+margin_right = 152.0
+margin_bottom = 192.0
+
+[node name="ProfessionLabel" type="Label" parent="List"]
+margin_right = 144.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 20, 20 )
+custom_fonts/font = ExtResource( 11 )
+text = "Profession"
+align = 1
+valign = 1
+
+[node name="HealthLabel" type="Label" parent="List"]
+margin_top = 30.0
+margin_right = 144.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 20, 20 )
+custom_fonts/font = ExtResource( 11 )
+text = "Health"
+align = 1
+valign = 1
+
+[node name="FearLabel" type="Label" parent="List"]
+margin_top = 60.0
+margin_right = 144.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 20, 20 )
+custom_fonts/font = ExtResource( 11 )
+text = "Fear"
+align = 1
+valign = 1
+
+[node name="HobbyLabel" type="Label" parent="List"]
+margin_top = 90.0
+margin_right = 144.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 20, 20 )
+custom_fonts/font = ExtResource( 11 )
+text = "Hobby"
+align = 1
+valign = 1
+
+[node name="ExtraLabel" type="Label" parent="List"]
+margin_top = 120.0
+margin_right = 144.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 20, 20 )
+custom_fonts/font = ExtResource( 11 )
+text = "Extra"
+align = 1
+valign = 1
 
 [connection signal="draw" from="." to="." method="_on_CharInfoUI_draw"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="AcceptButton" to="." method="_on_AcceptButton_pressed"]
+[connection signal="pressed" from="DenieButton" to="." method="_on_DenieButton_pressed"]

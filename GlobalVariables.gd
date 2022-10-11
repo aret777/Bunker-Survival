@@ -3,10 +3,11 @@ extends Node
 var RANDOM
 
 var is_zoomed = false
-var UnitSelected = false
+var UnitSelected = 0
 var IsSelected = false
-var UnitIDCounter = 0
+var HumanWaiting = []
 var HumanObjectArray = []
+var RoomsObjectArray = []
 	
 func _ready():
 	RANDOM = RandomNumberGenerator.new()
