@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export (int) var MAX_SPEED = 15
+var motion = Vector2.ZERO
+
 var MnameArr = ["Alko", "Alex", "Daniel", "Jack", "Oliver", "Tomas", "Liam", "Mike", "Nolan", "Ryan"]
 var FnameArr = ["Alice", "Bella", "Eovin", "Jess", "Lara", "Lily", "Ruby", "Sara", "Sofia", "Zoey", ]
 var surnameArr = ["Ames", "Bangs", "Colt", "Costa", "Finch", "Johnson", "Page", "Snider", "Smith", "Wolt"]

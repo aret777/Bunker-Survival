@@ -5,7 +5,7 @@
 [ext_resource path="res://Fonts/NORMAL_font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11, 31 )
+extents = Vector2( 7, 17.5 )
 
 [node name="BasicModel" type="KinematicBody2D"]
 input_pickable = true
@@ -25,5 +25,7 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 32, 33 )
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="input_event" from="." to="." method="_on_BasicModel_input_event"]

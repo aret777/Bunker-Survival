@@ -19,13 +19,11 @@ func _ready():
 	timer.set_wait_time(0.5)
 	timer.start() #to start
 	
-	for j in range (6):
+	for j in range (3):#spawn 3 random rooms
 		var NewRoom = Bunker.instance()
 		if j<3:
-			NewRoom.position = RoomsSpawnPoint + Vector2(j*450, 0)
-		if j>=3 && i<6:
-			NewRoom.position = RoomsSpawnPoint + Vector2((j-3)*450, 300)
-		GlobalVariables.RoomsObjectArray.append(NewRoom) #First append on array, then add, cause add
+			NewRoom.position = RoomsSpawnPoint + Vector2(j*500, 0)
+		#GlobalVariables.RoomsObjectArray.append(NewRoom) #First append on array, then add, cause add
 		#works on _ready, but append before.
 		add_child(NewRoom) #spawn on world
 	pass # Replace with function body.
@@ -58,7 +56,8 @@ func _on_timer_timeout():
 #Attribution to Freepik:
 #https://www.freepik.com/
 
-
+#CHaracters animation and spritesheet
+#https://craftpix.net/freebies/free-townspeople-cyberpunk-pixel-art/?utm_campaign=Website&utm_source=itch.io&utm_medium=public
 
 
 
