@@ -1,9 +1,11 @@
 extends CanvasLayer
 
-onready var CharInfo = $CharInfoUI
+onready var CharInfo = $BunkerUI/CharInfoUI
+onready var BunkerUI = $BunkerUI
 	
 func _ready():
 	add_to_group("UIGroup")
+	BunkerUI.set_position(Vector2(0,0))
 	pass
 
 func _input(_event):

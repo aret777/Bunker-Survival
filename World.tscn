@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Images/TilesetGround.png" type="Texture" id=1]
 [ext_resource path="res://TimerNode.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/CharInfoUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/UI.gd" type="Script" id=8]
 [ext_resource path="res://ImagesObjects/Room.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ImagesObjects/Human.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
 points = PoolVector2Array( 96, 96, 0, 96, 0, 0, 96, 0 )
@@ -213,7 +214,7 @@ tile_set = SubResource( 9 )
 cell_size = Vector2( 2, 2 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( -261411, 4, 0, 1770205, 4, 0, 4522717, 4, 0, 7209693, 4, 0, 10027741, 4, 0, 16777949, 7, 0, 16778108, 7, 0, 16778266, 7, 0 )
+tile_data = PoolIntArray( -261411, 4, 0, 1770205, 4, 0, 4522717, 4, 0, 7209693, 4, 0, 10027741, 4, 0, 14812331, 2, 0, 16777949, 7, 0, 16778108, 7, 0, 16778266, 7, 0 )
 
 [node name="HumanSpawnPoint" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1600, 368 )
@@ -242,9 +243,11 @@ script = ExtResource( 5 )
 script = ExtResource( 8 )
 
 [node name="BunkerUI" parent="UI" instance=ExtResource( 6 )]
+margin_top = -736.0
+margin_bottom = -736.0
 mouse_filter = 2
 
-[node name="CharInfoUI" parent="UI" instance=ExtResource( 7 )]
+[node name="CharInfoUI" parent="UI/BunkerUI" instance=ExtResource( 7 )]
 margin_left = 963.0
 margin_top = 70.0
 margin_right = 963.0
@@ -273,3 +276,6 @@ RoomID = 5
 [node name="DormitoryRoom" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1050, 600 )
 RoomID = 6
+
+[node name="Human" parent="." instance=ExtResource( 10 )]
+position = Vector2( 688, 120 )

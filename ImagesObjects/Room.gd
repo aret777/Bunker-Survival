@@ -20,10 +20,18 @@ func _ready():
 	
 	namelabel.text = RoomNames[RoomID]
 	#print("Array Room id is: ", RoomObjArr.find(self))
-	
-	match RoomID:
+	match RoomID:#For beatiful grafick floor laying on top
 		3,4,5: self.z_index = -1
 		6,7,8: self.z_index = -2
 	
 	pass # Replace with function body.
 
+func _on_RoomNode_input_event(_viewport, event, _shape_idx):
+	var Human = GlobalVariables.HumanObjectArray[GlobalVariables.UnitSelected]
+
+	if event.is_action_pressed("mouse_right_button") && GlobalVariables.IsSelected == true \
+	&& GlobalVariables.UnitSelected != 0:
+		Human._Desselected_Unit()
+		Human.State = Human.DIRECTION.LEFT
+		get_tree().call_group("UIGroup", "_hide_char_info")
+	pass # Replace with function body.

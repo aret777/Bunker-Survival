@@ -23,6 +23,7 @@ func _on_CharInfoUI_draw():
 	NameSurname.text = Human._getName() + " " + Human._getSurname()
 	Age.text = String(Human.Age) + " years"
 	Avatar.set_frame(Human._getAvatarID())
+	Status.text = Human.Status
 	
 	HpBar.value = Human.HP
 	StrBar.value = Human.Str
@@ -35,7 +36,12 @@ func _on_CharInfoUI_draw():
 	HobbyLabel.text = Human.Hobby
 	ExtraLabel.text = Human.Extra
 	
-	
+	if Human.Status != "Outside":
+		$AcceptButton.hide()
+		$DenieButton.hide()
+	else: 
+		$AcceptButton.show()
+		$DenieButton.show()
 	pass # Replace with function body.
 
 
@@ -48,21 +54,20 @@ func _on_CloseButton_pressed():
 func _on_AcceptButton_pressed():
 	var Human = GlobalVariables.HumanObjectArray[GlobalVariables.UnitSelected]
 	Human.Selected = true
-	Status.text = "In rest room"
+	Human.Status = "In rest room"
+	#Human._Movement(Vector2(-1000, 0))
+	Human.spriteAnimator.play("Walk")
 	get_tree().call_group("SelectedUnit", "_Desselected_Unit")
 	self.hide()
-	$AcceptButton.hide()
-	$DenieButton.hide()
 	pass # Replace with function body.
 
 
 func _on_DenieButton_pressed():
 	var Human = GlobalVariables.HumanObjectArray[GlobalVariables.UnitSelected]
 	#GlobalVariables.HumanObjectArray.remove(GlobalVariables.UnitSelected)
+	Human.Status = "DECLINED"
 	get_tree().call_group("SelectedUnit", "_Desselected_Unit")
 	self.hide()
 	Human.queue_free()
-	$AcceptButton.hide()
-	$DenieButton.hide()
 	#print("Array now is size: ", GlobalVariables.HumanObjectArray.size())
 	pass # Replace with function body.

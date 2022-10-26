@@ -234,3 +234,5 @@ cell_size = Vector2( 2, 2 )
 cell_quadrant_size = 2
 format = 1
 tile_data = PoolIntArray( 7077888, 0, 0, 7077912, 0, 0, 7077958, 0, 0, 7078003, 0, 0, 7078049, 0, 0 )
+
+[connection signal="input_event" from="." to="." method="_on_RoomNode_input_event"]

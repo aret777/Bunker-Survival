@@ -3,7 +3,7 @@ extends Node
 var Human = preload("res://ImagesObjects/Human.tscn")
 var Bunker = preload("res://ImagesObjects/Room.tscn")
 
-onready var CharInfoUI = $UI/CharInfoUI
+onready var CharInfoUI = $UI/BunkerUI/CharInfoUI
 onready var HumansSpawnPoint = $HumanSpawnPoint.get_position()
 onready var RoomsSpawnPoint = $RoomsSpawnPoint.get_position()
 var timer = Timer.new()
@@ -30,7 +30,7 @@ func _ready():
 
 func _on_timer_timeout():
 	var NewHuman = Human.instance()
-	#NewHuman.position = Vector2(1470+Count*60, 450)
+
 	NewHuman.position = HumansSpawnPoint + Vector2(i*100, 0)
 	GlobalVariables.HumanObjectArray.append(NewHuman)
 	add_child(NewHuman) #spawn on world
@@ -57,8 +57,8 @@ func _on_timer_timeout():
 #https://www.freepik.com/
 
 #CHaracters animation and spritesheet
-#https://craftpix.net/freebies/free-townspeople-cyberpunk-pixel-art/?utm_campaign=Website&utm_source=itch.io&utm_medium=public
-
+# https://craftpix.net/freebies/free-townspeople-cyberpunk-pixel-art/?utm_campaign=Website&utm_source=itch.io&utm_medium=public
+# https://craftpix.net/freebies/free-3-cyberpunk-characters-pixel-art/
 
 
 
