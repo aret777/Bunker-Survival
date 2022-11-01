@@ -52,12 +52,13 @@ func _on_CloseButton_pressed():
 
 
 func _on_AcceptButton_pressed():
-	var Human = GlobalVariables.HumanObjectArray[GlobalVariables.UnitSelected]
+	GlobalVariables.UnitOrdered = GlobalVariables.UnitSelected
+	var Human = GlobalVariables.HumanObjectArray[GlobalVariables.UnitOrdered]
 	Human.Selected = true
 	Human.Status = "In rest room"
-	#Human._Movement(Vector2(-1000, 0))
-	Human.spriteAnimator.play("Walk")
+	get_tree().call_group("RoomsGroup", "_Move_to_Living_Room")
 	get_tree().call_group("SelectedUnit", "_Desselected_Unit")
+	get_tree().call_group("UIGroup", "_updateUI")
 	self.hide()
 	pass # Replace with function body.
 

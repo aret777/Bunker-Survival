@@ -1,7 +1,7 @@
 extends Node
 
-var Human = preload("res://ImagesObjects/Human.tscn")
-var Bunker = preload("res://ImagesObjects/Room.tscn")
+var Human = preload("res://Objects/Human.tscn")
+var Bunker = preload("res://Objects/Room.tscn")
 
 onready var CharInfoUI = $UI/BunkerUI/CharInfoUI
 onready var HumansSpawnPoint = $HumanSpawnPoint.get_position()
@@ -9,7 +9,11 @@ onready var RoomsSpawnPoint = $RoomsSpawnPoint.get_position()
 var timer = Timer.new()
 var i = 0
 
+onready var nav_2d: Navigation2D = $LevelNavigation #In Globals/Room/Human
+
 func _ready():
+	GlobalVariables.nav_2d = nav_2d
+	
 	CharInfoUI.hide()
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	#timeout is what says in docs, in signals

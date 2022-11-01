@@ -20,10 +20,6 @@ func _ready():
 	
 	namelabel.text = RoomNames[RoomID]
 	#print("Array Room id is: ", RoomObjArr.find(self))
-	match RoomID:#For beatiful grafick floor laying on top
-		3,4,5: self.z_index = -1
-		6,7,8: self.z_index = -2
-	
 	pass # Replace with function body.
 
 func _on_RoomNode_input_event(_viewport, event, _shape_idx):

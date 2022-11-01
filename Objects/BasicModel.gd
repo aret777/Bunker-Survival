@@ -1,16 +1,13 @@
 extends KinematicBody2D
 
 export (int) var ACCELERATION = 512
-export (int) var MAX_SPEED = 500
+export (int) var MAX_SPEED = 300
 export (float) var FRICTION = 0.25
 var motion = Vector2.ZERO
 
 onready var sprite = $Sprite
 onready var spriteAnimator = $AnimationPlayer
 onready var namelabel = $NameLabel
-enum DIRECTION {LEFT = -1, RIGHT = -1, IDLE = 0}
-export (DIRECTION) var WALKING_DIRECTION
-var State 
 onready var FloorLeft = $FloorLeft
 onready var FloorRight = $FloorRight
 onready var WallRight = $WallRight
@@ -43,7 +40,6 @@ onready var Extra = extraArr[GlobalVariables.RANDOM.randi_range(0,4)]
 
 func _ready():
 	sprite.set_flip_h(true)
-	#State = WALKING_DIRECTION
 	
 	if Age >=50: #aging
 		if HP==3: HP = GlobalVariables.RANDOM.randi_range(1,2)
@@ -84,21 +80,24 @@ func _getHealth():
 	
 func _physics_process(delta): #movement
 	if GlobalVariables.UnitSelected == ID:
-		var input_vector = Vector2.ZERO
-		input_vector.x = Input.get_action_strength("Key D") - Input.get_action_strength("Key A")
-		input_vector.y = Input.get_action_strength("Key S") - Input.get_action_strength("Key W")
-		
-			
-		if input_vector != Vector2.ZERO: #if equal to zero, we are not pressing anything
-			motion += input_vector * ACCELERATION * delta
-			motion = motion.limit_length(MAX_SPEED) #prevent us to move very quickly
-		else:
-			motion = motion.linear_interpolate(Vector2.ZERO, FRICTION)
-			
-		motion = move_and_slide(motion)
-		_Update_Animations(input_vector)
-		
-func _Movement(how_much_move):
+		pass
+#		var input_vector = Vector2.ZERO
+#		input_vector.x = Input.get_action_strength("Key D") - Input.get_action_strength("Key A")
+#		input_vector.y = Input.get_action_strength("Key S") - Input.get_action_strength("Key W")
+#
+#
+#		if input_vector != Vector2.ZERO: #if equal to zero, we are not pressing anything
+#			motion += input_vector * ACCELERATION * delta
+#			motion = motion.limit_length(MAX_SPEED) #prevent us to move very quickly
+#		else:
+#			motion = motion.linear_interpolate(Vector2.ZERO, FRICTION)
+#		_Movement()
+#		_Update_Animations(input_vector)
+
+func _Movement():
+	motion = move_and_slide(motion) #velocity
+	
+func _MoveOnce(how_much_move):
 	var input_vector = Vector2.ZERO
 	input_vector = how_much_move
 
@@ -108,7 +107,8 @@ func _Movement(how_much_move):
 	else:
 		motion = motion.linear_interpolate(Vector2.ZERO, FRICTION)
 	motion = move_and_slide(motion)
-
+	
+	
 func _Update_Animations(input_vector):
 	if input_vector.x != 0:
 		if input_vector.x > 0:
@@ -118,8 +118,6 @@ func _Update_Animations(input_vector):
 		spriteAnimator.play("Walk")
 	else:
 		spriteAnimator.play("Idle")
-
-
 
 
 func _on_BasicModel_input_event(_viewport, event, _shape_idx): #selection of unit
@@ -147,18 +145,7 @@ func _Desselected_Unit():
 	remove_from_group("SelectedUnit")
 	GlobalVariables.IsSelected = false
 	GlobalVariables.UnitSelected = 0
-#
-#func _on_SelectionArea_selection_toggled(selection):
-#
-#	if selection: 
-#		$NameLabel.set("custom_colors/font_color", Color(0,1,0))
-#		add_to_group("SelectedUnit")
-#	if !selection: 
-#		$NameLabel.set("custom_colors/font_color", Color(1,1,1))
-#		remove_from_group("SelectedUnit")
-#
-#	print("color change")
-#	pass # Replace with function body.
+
 	
 	
 	
