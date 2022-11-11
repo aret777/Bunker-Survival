@@ -1,9 +1,8 @@
 extends Node
 
 var Human = preload("res://Objects/Human.tscn")
-var Bunker = preload("res://Objects/Room.tscn")
+var Bunker = preload("res://Objects/Bunker.tscn")
 
-onready var CharInfoUI = $UI/BunkerUI/CharInfoUI
 onready var HumansSpawnPoint = $HumanSpawnPoint.get_position()
 onready var RoomsSpawnPoint = $RoomsSpawnPoint.get_position()
 var timer = Timer.new()
@@ -14,7 +13,6 @@ onready var nav_2d: Navigation2D = $LevelNavigation #In Globals/Room/Human
 func _ready():
 	GlobalVariables.nav_2d = nav_2d
 	
-	CharInfoUI.hide()
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	#timeout is what says in docs, in signals
 	#self is who respond to the callback
@@ -64,7 +62,8 @@ func _on_timer_timeout():
 # https://craftpix.net/freebies/free-townspeople-cyberpunk-pixel-art/?utm_campaign=Website&utm_source=itch.io&utm_medium=public
 # https://craftpix.net/freebies/free-3-cyberpunk-characters-pixel-art/
 
-
+#Animated background attribution
+#https://www.videvo.net/video/one-minute-countdown-on-boucherie-typography-in-black-and-white/1111570/
 
 
 

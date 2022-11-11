@@ -6,6 +6,8 @@ onready var PopulationLabel = $BunkerUI/BunkerBar/HumanCounter
 	
 func _ready():
 	add_to_group("UIGroup")
+	CharInfo.hide()
+	self.show()
 	BunkerUI.set_position(Vector2(0,0))
 	pass
 
@@ -21,4 +23,5 @@ func _hide_char_info():
 func _updateUI():
 	GlobalVariables._set_population()
 	PopulationLabel.text = str(GlobalVariables.Population) + "/10"
+	
 	

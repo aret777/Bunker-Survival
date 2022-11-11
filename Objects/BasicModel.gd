@@ -78,46 +78,33 @@ func _getIntellect():
 func _getHealth():
 	return Health
 	
-func _physics_process(delta): #movement
-	if GlobalVariables.UnitSelected == ID:
-		pass
-#		var input_vector = Vector2.ZERO
-#		input_vector.x = Input.get_action_strength("Key D") - Input.get_action_strength("Key A")
-#		input_vector.y = Input.get_action_strength("Key S") - Input.get_action_strength("Key W")
+func _physics_process(_delta): #Humans movement in Human.gd
+	pass
+
+#func _Movement():
+#	motion = move_and_slide(motion) #velocity
+#
+#func _MoveOnce(how_much_move):
+#	var input_vector = Vector2.ZERO
+#	input_vector = how_much_move
+#
+#	if input_vector != Vector2.ZERO: #if equal to zero, we are not pressing anything
+#		motion += input_vector * ACCELERATION
+#		motion = motion.limit_length(MAX_SPEED) #prevent us to move very quickly
+#	else:
+#		motion = motion.linear_interpolate(Vector2.ZERO, FRICTION)
+#	motion = move_and_slide(motion)
 #
 #
-#		if input_vector != Vector2.ZERO: #if equal to zero, we are not pressing anything
-#			motion += input_vector * ACCELERATION * delta
-#			motion = motion.limit_length(MAX_SPEED) #prevent us to move very quickly
-#		else:
-#			motion = motion.linear_interpolate(Vector2.ZERO, FRICTION)
-#		_Movement()
-#		_Update_Animations(input_vector)
-
-func _Movement():
-	motion = move_and_slide(motion) #velocity
-	
-func _MoveOnce(how_much_move):
-	var input_vector = Vector2.ZERO
-	input_vector = how_much_move
-
-	if input_vector != Vector2.ZERO: #if equal to zero, we are not pressing anything
-		motion += input_vector * ACCELERATION
-		motion = motion.limit_length(MAX_SPEED) #prevent us to move very quickly
-	else:
-		motion = motion.linear_interpolate(Vector2.ZERO, FRICTION)
-	motion = move_and_slide(motion)
-	
-	
-func _Update_Animations(input_vector):
-	if input_vector.x != 0:
-		if input_vector.x > 0:
-			sprite.set_flip_h(false)
-		if input_vector.x < 0:
-			sprite.set_flip_h(true)
-		spriteAnimator.play("Walk")
-	else:
-		spriteAnimator.play("Idle")
+#func _Update_Animations(input_vector):
+#	if input_vector.x != 0:
+#		if input_vector.x > 0:
+#			sprite.set_flip_h(false)
+#		if input_vector.x < 0:
+#			sprite.set_flip_h(true)
+#		spriteAnimator.play("Walk")
+#	else:
+#		spriteAnimator.play("Idle")
 
 
 func _on_BasicModel_input_event(_viewport, event, _shape_idx): #selection of unit
