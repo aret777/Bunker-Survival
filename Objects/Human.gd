@@ -16,14 +16,14 @@ func _ready():
 			AvatarID = 13
 		else: 
 			AvatarID = GlobalVariables.RANDOM.randi_range(0,12)
-			sprite.texture = load("res://Images/Man"+str(SpriteNumber)+".png")
+		sprite.texture = load("res://Images/Man"+str(SpriteNumber)+".png")
 		
 	if Sex==1: #female
 		if Age >=50:
 			AvatarID = 20
 		else: 
 			AvatarID = GlobalVariables.RANDOM.randi_range(14,19)
-			sprite.texture = load("res://Images/Woman"+str(SpriteNumber)+".png")
+		sprite.texture = load("res://Images/Woman"+str(SpriteNumber)+".png")
 				
 	_CheckChars()
 	#movement next, base made on BasicModel

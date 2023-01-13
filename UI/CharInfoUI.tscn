@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://UI/Profile.png" type="Texture" id=1]
 [ext_resource path="res://UI/CharInfoUI.gd" type="Script" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://UI/Button 1.png" type="Texture" id=9]
 [ext_resource path="res://UI/BarTheme.tres" type="Theme" id=10]
 [ext_resource path="res://Fonts/NORMAL_font.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Images/Profession.png" type="Texture" id=12]
+[ext_resource path="res://Images/Health.png" type="Texture" id=13]
+[ext_resource path="res://Images/Fear.png" type="Texture" id=14]
+[ext_resource path="res://Images/Hobby.png" type="Texture" id=15]
+[ext_resource path="res://Images/Extra.png" type="Texture" id=16]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0509804, 0.529412, 0.0705882, 1 )
@@ -55,10 +60,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 162.0
-margin_top = 41.0
-margin_right = 248.0
-margin_bottom = 127.0
+margin_left = 165.0
+margin_top = 40.0
+margin_right = 251.0
+margin_bottom = 130.0
 rect_min_size = Vector2( 55, 55 )
 rect_scale = Vector2( 0.75, 0.75 )
 
@@ -81,7 +86,7 @@ align = 1
 autowrap = true
 
 [node name="Avatars" type="Sprite" parent="."]
-position = Vector2( 266.512, 72 )
+position = Vector2( 271, 72 )
 scale = Vector2( 0.0932527, 0.0854767 )
 texture = ExtResource( 6 )
 hframes = 7
@@ -92,9 +97,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 2.0
 anchor_bottom = 0.5
-margin_left = -156.0
+margin_left = -152.0
 margin_top = -210.0
-margin_right = -332.0
+margin_right = -328.0
 margin_bottom = -130.0
 columns = 2
 __meta__ = {
@@ -262,36 +267,42 @@ __meta__ = {
 }
 
 [node name="InventoryShell" type="Sprite" parent="."]
+visible = false
 position = Vector2( -232, 408 )
 scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
 offset = Vector2( 638, -141.373 )
 
 [node name="InventoryShell2" type="Sprite" parent="."]
+visible = false
 position = Vector2( -88, 408 )
 scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
 offset = Vector2( 638, -141.373 )
 
 [node name="InventoryShell3" type="Sprite" parent="."]
+visible = false
 position = Vector2( -232, 496 )
 scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
 offset = Vector2( 638, -141.373 )
 
 [node name="InventoryShell4" type="Sprite" parent="."]
+visible = false
 position = Vector2( -87, 495 )
 scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
 offset = Vector2( 638, -141.373 )
 
 [node name="InventoryShell5" type="Sprite" parent="."]
+visible = false
 position = Vector2( -232, 584 )
 scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
 offset = Vector2( 638, -141.373 )
 
 [node name="InventoryShell6" type="Sprite" parent="."]
+visible = false
 position = Vector2( -88, 584 )
 scale = Vector2( 0.5, 0.496914 )
 texture = ExtResource( 8 )
@@ -323,13 +334,13 @@ flat = true
 icon_align = 1
 
 [node name="List" type="VBoxContainer" parent="."]
-margin_left = 8.0
+margin_left = 23.0
 margin_top = 40.0
-margin_right = 152.0
-margin_bottom = 192.0
+margin_right = 163.0
+margin_bottom = 200.0
 
 [node name="ProfessionLabel" type="Label" parent="List"]
-margin_right = 144.0
+margin_right = 140.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 20, 20 )
 custom_fonts/font = ExtResource( 11 )
@@ -337,9 +348,14 @@ text = "Profession"
 align = 1
 valign = 1
 
+[node name="Profession" type="Sprite" parent="List"]
+position = Vector2( -5, 12 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 12 )
+
 [node name="HealthLabel" type="Label" parent="List"]
 margin_top = 30.0
-margin_right = 144.0
+margin_right = 140.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 20, 20 )
 custom_fonts/font = ExtResource( 11 )
@@ -347,9 +363,14 @@ text = "Health"
 align = 1
 valign = 1
 
+[node name="Health" type="Sprite" parent="List"]
+position = Vector2( -5, 42 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 13 )
+
 [node name="FearLabel" type="Label" parent="List"]
 margin_top = 60.0
-margin_right = 144.0
+margin_right = 140.0
 margin_bottom = 86.0
 rect_min_size = Vector2( 20, 20 )
 custom_fonts/font = ExtResource( 11 )
@@ -357,9 +378,14 @@ text = "Fear"
 align = 1
 valign = 1
 
+[node name="Fear" type="Sprite" parent="List"]
+position = Vector2( -5, 70 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 14 )
+
 [node name="HobbyLabel" type="Label" parent="List"]
 margin_top = 90.0
-margin_right = 144.0
+margin_right = 140.0
 margin_bottom = 116.0
 rect_min_size = Vector2( 20, 20 )
 custom_fonts/font = ExtResource( 11 )
@@ -367,15 +393,24 @@ text = "Hobby"
 align = 1
 valign = 1
 
+[node name="Hobby" type="Sprite" parent="List"]
+position = Vector2( -3, 100 )
+texture = ExtResource( 15 )
+
 [node name="ExtraLabel" type="Label" parent="List"]
 margin_top = 120.0
-margin_right = 144.0
+margin_right = 140.0
 margin_bottom = 146.0
 rect_min_size = Vector2( 20, 20 )
 custom_fonts/font = ExtResource( 11 )
 text = "Extra"
 align = 1
 valign = 1
+
+[node name="Extra" type="Sprite" parent="List"]
+position = Vector2( -5, 130 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 16 )
 
 [connection signal="draw" from="." to="." method="_on_CharInfoUI_draw"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_CloseButton_pressed"]

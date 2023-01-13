@@ -15,6 +15,11 @@ onready var FearLabel = $List/FearLabel
 onready var HobbyLabel = $List/HobbyLabel
 onready var ExtraLabel = $List/ExtraLabel
 
+onready var InventoryHands = $Hands
+onready var InventoryVest = $Vest
+onready var InventoryShells = [$InventoryShell, $InventoryShell2, $InventoryShell3, $InventoryShell4, $InventoryShell5, $InventoryShell6]
+
+
 func _ready():
 	pass # Replace with function body.
 
@@ -36,6 +41,13 @@ func _on_CharInfoUI_draw():
 	HobbyLabel.text = Human.Hobby
 	ExtraLabel.text = Human.Extra
 	
+	for shells in InventoryShells: shells.hide()
+	
+	for i in range(Human.Str*2):
+		InventoryShells[i].show()
+		
+	 
+		
 	if Human.Status != "Outside":
 		$AcceptButton.hide()
 		$DenieButton.hide()

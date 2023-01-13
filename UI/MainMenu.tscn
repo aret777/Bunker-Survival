@@ -474,12 +474,12 @@ margin_right = 300.0
 margin_bottom = 74.0
 rect_min_size = Vector2( 20, 20 )
 
-[node name="Atomic" type="ToolButton" parent="MenuRoot/Menu2/Control/VBoxContainer"]
+[node name="Nuclear" type="ToolButton" parent="MenuRoot/Menu2/Control/VBoxContainer"]
 margin_top = 78.0
 margin_right = 300.0
 margin_bottom = 112.0
 custom_fonts/font = ExtResource( 1 )
-text = "Atomic War"
+text = "Nuclear Warfare"
 
 [node name="Asteroid" type="ToolButton" parent="MenuRoot/Menu2/Control/VBoxContainer"]
 margin_top = 116.0
@@ -515,10 +515,47 @@ margin_bottom = 288.0
 custom_fonts/font = ExtResource( 1 )
 text = "Back to Main Menu"
 
+[node name="NALabel1" type="Label" parent="MenuRoot/Menu2/Control"]
+margin_left = 652.0
+margin_top = 315.0
+margin_right = 796.0
+margin_bottom = 341.0
+rect_rotation = -40.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 91.5957, 44.0625 )
+custom_colors/font_color = Color( 1, 0.054902, 0.054902, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Not Available"
+
+[node name="NALabel2" type="Label" parent="MenuRoot/Menu2/Control"]
+margin_left = 656.0
+margin_top = 348.0
+margin_right = 800.0
+margin_bottom = 374.0
+rect_rotation = -40.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 91.5957, 44.0625 )
+custom_colors/font_color = Color( 1, 0.054902, 0.054902, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Not Available"
+
+[node name="NALabel3" type="Label" parent="MenuRoot/Menu2/Control"]
+margin_left = 629.0
+margin_top = 394.0
+margin_right = 773.0
+margin_bottom = 420.0
+rect_rotation = -40.0
+rect_scale = Vector2( 0.7, 0.7 )
+rect_pivot_offset = Vector2( 91.5957, 44.0625 )
+custom_colors/font_color = Color( 1, 0.054902, 0.054902, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Not Available"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuRoot"]
 anims/RESET = SubResource( 1 )
 anims/fade_in = SubResource( 2 )
 
 [connection signal="pressed" from="MenuRoot/Menu1/Control/VBoxContainer/Scenarios" to="MenuRoot" method="_on_Scenarios_pressed"]
 [connection signal="pressed" from="MenuRoot/Menu1/Control/VBoxContainer/Exit" to="MenuRoot" method="_on_Exit_pressed"]
+[connection signal="pressed" from="MenuRoot/Menu2/Control/VBoxContainer/Nuclear" to="MenuRoot" method="_on_AtomicWarButton_pressed"]
 [connection signal="pressed" from="MenuRoot/Menu2/Control/VBoxContainer/Back" to="MenuRoot" method="_on_Back_pressed"]

@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var CharInfo = $BunkerUI/CharInfoUI
 onready var BunkerUI = $BunkerUI
 onready var PopulationLabel = $BunkerUI/BunkerBar/HumanCounter
+onready var FoodMath = $BunkerUI/BunkerBar/FoodMath
 	
 func _ready():
 	add_to_group("UIGroup")
@@ -23,5 +24,6 @@ func _hide_char_info():
 func _updateUI():
 	GlobalVariables._set_population()
 	PopulationLabel.text = str(GlobalVariables.Population) + "/10"
+	FoodMath.text = "(" + str(-GlobalVariables.Population) + ")"
 	
 	
